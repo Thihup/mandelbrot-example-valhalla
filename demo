@@ -1,5 +1,5 @@
 #!/bin/bash
-${JAVA_HOME}/bin/java  -jar target/demo.jar &
-${JAVA_HOME}/bin/java  -jar target/demo.jar value &
-${JAVA_HOME}/bin/java  -jar target/demo.jar primitive &
+${JAVA_HOME}/bin/java -p target/demo.jar -m dev.thihup.valhalla.mandelbrot.example &
+${JAVA_HOME}/bin/java -p target/demo.jar -m dev.thihup.valhalla.mandelbrot.example value &
+${JAVA_HOME}/bin/java -p target/demo.jar -m dev.thihup.valhalla.mandelbrot.example primitive &
 
