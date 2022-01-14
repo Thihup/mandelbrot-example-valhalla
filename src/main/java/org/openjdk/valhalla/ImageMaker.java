@@ -1,7 +1,7 @@
 package org.openjdk.valhalla;
 
 import org.openjdk.valhalla.baseline.BaselineFrameMaker;
-import org.openjdk.valhalla.inline.InlineFrameMaker;
+import org.openjdk.valhalla.primitive.PrimitiveFrameMaker;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -24,7 +24,7 @@ public class ImageMaker {
     final int[] rgbPalette;
     final FrameMaker frame;
 
-    public ImageMaker(int size, boolean isInline) {
+    public ImageMaker(int size, boolean isPrimitive) {
         this.pix_size = size;
         buffer = new BufferedImage(pix_size, pix_size, BufferedImage.TYPE_INT_RGB);
         palette = new Palette(MAX_COLOR - MIN_COLOR, MIN_COLOR, MAX_COLOR,
@@ -33,7 +33,7 @@ public class ImageMaker {
         palette.setSize(FrameMaker.MAX_ITERATIONS);
         rgbPalette = palette.getRgbColors();
         rgbPalette[0] = 0; // I want it painted black
-        frame = isInline ? new InlineFrameMaker(size, rgbPalette) : new BaselineFrameMaker(size, rgbPalette);
+        frame = isPrimitive ? new PrimitiveFrameMaker(size, rgbPalette) : new BaselineFrameMaker(size, rgbPalette);
     }
 
     public Image getImage() {

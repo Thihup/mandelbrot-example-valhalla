@@ -21,10 +21,10 @@ public final class Demo extends JPanel {
     }
 
 
-    private static boolean isInline = false;
+    private static boolean isPrimitive = false;
 
     public static void main(String[] args) {
-        isInline = args.length==1 && "inline".equals(args[0]);
+        isPrimitive = args.length==1 && "primitive".equals(args[0]);
         EventQueue.invokeLater(Demo::createAndShowGui);
     }
 
@@ -35,7 +35,7 @@ public final class Demo extends JPanel {
             ex.printStackTrace();
             Toolkit.getDefaultToolkit().beep();
         }
-        JFrame frame = new JFrame(isInline ? "Inline/Value" : "Reference");
+        JFrame frame = new JFrame(isPrimitive ? "Primitive" : "Reference");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.getContentPane().add(new Demo());
         frame.setResizable(false);
@@ -78,7 +78,7 @@ public final class Demo extends JPanel {
 
         @Override
         public void run() {
-            ImageMaker imaker = new ImageMaker(500, isInline);
+            ImageMaker imaker = new ImageMaker(500, isPrimitive);
             component.setImage(imaker.getImage());
             long startTime = System.nanoTime();
             long cnt = 1;

@@ -1,6 +1,6 @@
-package org.openjdk.valhalla.inline;
+package org.openjdk.valhalla.primitive;
 
-public inline class Complex {
+public primitive class Complex {
 
     final double re;
     final double im;

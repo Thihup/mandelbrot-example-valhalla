@@ -1,6 +1,4 @@
 #!/bin/bash
-#JAVA_HOME=~/repj/valhalla-push/build/linux-x86_64-server-release/images/jdk/
-JAVA_HOME=~/repj/valhalla-push/b/jdk-11
-taskset -c 0,1 ${JAVA_HOME}/bin/java  -jar target/demo.jar value &
-taskset -c 2,3 ${JAVA_HOME}/bin/java  -jar target/demo.jar inline &
+${JAVA_HOME}/bin/java  -jar target/demo.jar &
+${JAVA_HOME}/bin/java  -jar target/demo.jar primitive &
 

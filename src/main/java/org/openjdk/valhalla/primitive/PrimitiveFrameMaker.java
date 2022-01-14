@@ -1,13 +1,13 @@
-package org.openjdk.valhalla.inline;
+package org.openjdk.valhalla.primitive;
 
 import org.openjdk.valhalla.FrameMaker;
 
 
-public class InlineFrameMaker extends FrameMaker {
+public class PrimitiveFrameMaker extends FrameMaker {
 
     Complex center = new Complex(CENTER_X, CENTER_Y);
 
-    public InlineFrameMaker(int pix_size, int[] rgbPalette) {
+    public PrimitiveFrameMaker(int pix_size, int[] rgbPalette) {
         super(pix_size, rgbPalette);
     }
 
