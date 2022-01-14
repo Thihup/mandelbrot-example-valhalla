@@ -21,10 +21,10 @@ public final class Demo extends JPanel {
     }
 
 
-    private static boolean isPrimitive = false;
+    private static Type type;
 
     public static void main(String[] args) {
-        isPrimitive = args.length==1 && "primitive".equals(args[0]);
+        type = args.length == 1 ? Type.valueOf(args[0].toUpperCase()) : Type.REFERENCE;
         EventQueue.invokeLater(Demo::createAndShowGui);
     }
 
@@ -35,7 +35,7 @@ public final class Demo extends JPanel {
             ex.printStackTrace();
             Toolkit.getDefaultToolkit().beep();
         }
-        JFrame frame = new JFrame(isPrimitive ? "Primitive" : "Reference");
+        JFrame frame = new JFrame(type.friendlyName);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.getContentPane().add(new Demo());
         frame.setResizable(false);
@@ -78,7 +78,7 @@ public final class Demo extends JPanel {
 
         @Override
         public void run() {
-            ImageMaker imaker = new ImageMaker(500, isPrimitive);
+            ImageMaker imaker = new ImageMaker(500, type);
             component.setImage(imaker.getImage());
             long startTime = System.nanoTime();
             long cnt = 1;

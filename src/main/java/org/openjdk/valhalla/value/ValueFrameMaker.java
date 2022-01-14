@@ -1,12 +1,13 @@
-package org.openjdk.valhalla.baseline;
+package org.openjdk.valhalla.value;
 
 import org.openjdk.valhalla.FrameMaker;
 
-public class BaselineFrameMaker extends FrameMaker {
+
+public class ValueFrameMaker extends FrameMaker {
 
     Complex center = new Complex(CENTER_X, CENTER_Y);
 
-    public BaselineFrameMaker(int pix_size, int[] rgbPalette) {
+    public ValueFrameMaker(int pix_size, int[] rgbPalette) {
         super(pix_size, rgbPalette);
     }
 
@@ -32,7 +33,4 @@ public class BaselineFrameMaker extends FrameMaker {
     private Complex toComplexCoord(double x, double y) {
         return new Complex((y * 2.0 / pix_size) - 1.0, (x * 2.0 / pix_size) - 1.0).scalarMult(scale).add(center);
     }
-
-
-
 }

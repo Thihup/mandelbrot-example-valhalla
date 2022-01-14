@@ -1,4 +1,5 @@
 #!/bin/bash
 ${JAVA_HOME}/bin/java  -jar target/demo.jar &
+${JAVA_HOME}/bin/java  -jar target/demo.jar value &
 ${JAVA_HOME}/bin/java  -jar target/demo.jar primitive &
 

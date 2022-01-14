@@ -1,6 +1,6 @@
-package org.openjdk.valhalla.baseline;
+package org.openjdk.valhalla.value;
 
-public class Complex {
+public value class Complex {
 
     final double re;
     final double im;
