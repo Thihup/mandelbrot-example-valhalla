@@ -6,14 +6,14 @@ public class ReferenceFrameMaker extends FrameMaker {
 
     Complex center = new Complex(CENTER_X, CENTER_Y);
 
-    public ReferenceFrameMaker(int pix_size, int[] rgbPalette) {
-        super(pix_size, rgbPalette);
+    public ReferenceFrameMaker(int pixSize, int[] rgbPalette) {
+        super(pixSize, rgbPalette);
     }
 
-    public void countScene(int x_from, int x_to, int[] data, int[] palette) {
-        int i = x_from*pix_size;
-        for (int x = x_from; x < x_to; x++) {
-            for (int y = 0; y < pix_size; y++) {
+    public void countScene(int xFrom, int xTo, int[] data, int[] palette) {
+        int i = xFrom * pixSize;
+        for (int x = xFrom; x < xTo; x++) {
+            for (int y = 0; y < pixSize; y++) {
                 data[i] = palette[count(toComplexCoord(x, y))];
                 i++;
             }
@@ -30,7 +30,7 @@ public class ReferenceFrameMaker extends FrameMaker {
     }
 
     private Complex toComplexCoord(double x, double y) {
-        return new Complex((y * 2.0 / pix_size) - 1.0, (x * 2.0 / pix_size) - 1.0).scalarMult(scale).add(center);
+        return new Complex((y * 2.0 / pixSize) - 1.0, (x * 2.0 / pixSize) - 1.0).scalarMult(scale).add(center);
     }
 
 

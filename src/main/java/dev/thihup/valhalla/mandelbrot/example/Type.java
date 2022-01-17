@@ -14,11 +14,11 @@ public enum Type {
     }
 
     final String friendlyName;
-    final FrameMaker frameMaker(int pix_size, int[] rgbPalette) {
+    final FrameMaker frameMaker(int pixSize, int[] rgbPalette) {
         return switch(this) {
-            case REFERENCE -> new ReferenceFrameMaker(pix_size, rgbPalette);
-            case VALUE -> new ValueFrameMaker(pix_size, rgbPalette);
-            case PRIMITIVE -> new PrimitiveFrameMaker(pix_size, rgbPalette);
+            case REFERENCE -> new ReferenceFrameMaker(pixSize, rgbPalette);
+            case VALUE -> new ValueFrameMaker(pixSize, rgbPalette);
+            case PRIMITIVE -> new PrimitiveFrameMaker(pixSize, rgbPalette);
         };
     }
 }

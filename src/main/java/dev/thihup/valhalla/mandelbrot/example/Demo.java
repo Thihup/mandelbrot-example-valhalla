@@ -8,7 +8,7 @@ public final class Demo extends JPanel {
     private Demo() {
         super(new BorderLayout());
 
-        UpdatebleImageComponent imComp = new UpdatebleImageComponent();
+        UpdatableImageComponent imComp = new UpdatableImageComponent();
         add(imComp, BorderLayout.CENTER);
         JLabel jl = new JLabel(String.format("fps: %.1f", 0.0),  JLabel.CENTER);
         jl.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 96));
@@ -44,7 +44,7 @@ public final class Demo extends JPanel {
         frame.setVisible(true);
     }
 
-    static class UpdatebleImageComponent extends JComponent {
+    static class UpdatableImageComponent extends JComponent {
         Image image;
 
         @Override
@@ -57,24 +57,18 @@ public final class Demo extends JPanel {
 
         public void setImage(Image im) {
             image = im;
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    repaint();
-                }
-            });
+            SwingUtilities.invokeLater(this::repaint);
         }
     };
 
     static class UpdateThread extends Thread {
-        final UpdatebleImageComponent component;
+        final UpdatableImageComponent component;
         final JLabel label;
 
-        UpdateThread(UpdatebleImageComponent component, JLabel jl) {
+        UpdateThread(UpdatableImageComponent component, JLabel jl) {
             this.component = component;
             label = jl;
         }
-
 
         @Override
         public void run() {

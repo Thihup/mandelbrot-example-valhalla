@@ -16,14 +16,14 @@ public class ImageMaker {
 
 
     final BufferedImage buffer;
-    final int pix_size;
+    final int pixSize;
     final Palette palette;
     final int[] rgbPalette;
     final FrameMaker frame;
 
     public ImageMaker(int size, Type type) {
-        this.pix_size = size;
-        buffer = new BufferedImage(pix_size, pix_size, BufferedImage.TYPE_INT_RGB);
+        this.pixSize = size;
+        buffer = new BufferedImage(pixSize, pixSize, BufferedImage.TYPE_INT_RGB);
         palette = new Palette(MAX_COLOR - MIN_COLOR, MIN_COLOR, MAX_COLOR,
                 Math.toRadians(R_ANGLE), Math.toRadians(G_ANGLE),
                 Math.toRadians(B_ANGLE), R_STEPS, G_STEPS, B_STEPS);
