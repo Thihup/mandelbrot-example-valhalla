@@ -1,7 +1,4 @@
-package org.openjdk.valhalla;
-
-import org.openjdk.valhalla.primitive.PrimitiveFrameMaker;
-import org.openjdk.valhalla.reference.ReferenceFrameMaker;
+package dev.thihup.valhalla.mandelbrot.example;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

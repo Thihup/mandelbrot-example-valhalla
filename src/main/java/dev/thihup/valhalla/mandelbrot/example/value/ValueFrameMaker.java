@@ -1,6 +1,6 @@
-package org.openjdk.valhalla.value;
+package dev.thihup.valhalla.mandelbrot.example.value;
 
-import org.openjdk.valhalla.FrameMaker;
+import dev.thihup.valhalla.mandelbrot.example.FrameMaker;
 
 
 public class ValueFrameMaker extends FrameMaker {

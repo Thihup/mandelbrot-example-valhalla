@@ -1,4 +1,4 @@
-package org.openjdk.valhalla;
+package dev.thihup.valhalla.mandelbrot.example;
 
 import java.util.List;
 import java.util.concurrent.Callable;

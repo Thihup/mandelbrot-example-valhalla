@@ -1,15 +1,15 @@
-package org.openjdk.valhalla;
+package dev.thihup.valhalla.mandelbrot.example;
 
-import org.openjdk.valhalla.primitive.PrimitiveFrameMaker;
-import org.openjdk.valhalla.reference.ReferenceFrameMaker;
-import org.openjdk.valhalla.value.ValueFrameMaker;
+import dev.thihup.valhalla.mandelbrot.example.primitive.PrimitiveFrameMaker;
+import dev.thihup.valhalla.mandelbrot.example.reference.ReferenceFrameMaker;
+import dev.thihup.valhalla.mandelbrot.example.value.ValueFrameMaker;
 
 public enum Type {
     REFERENCE("Reference"),
     VALUE("Value"),
     PRIMITIVE("Primitive");
 
-    private Type(String friendlyName) {
+    Type(String friendlyName) {
         this.friendlyName = friendlyName;
     }
 

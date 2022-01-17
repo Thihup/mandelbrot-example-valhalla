@@ -1,4 +1,4 @@
-package org.openjdk.valhalla.reference;
+package dev.thihup.valhalla.mandelbrot.example.reference;
 
 public class Complex {
 

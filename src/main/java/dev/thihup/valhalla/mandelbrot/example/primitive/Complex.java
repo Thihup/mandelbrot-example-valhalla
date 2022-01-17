@@ -1,6 +1,6 @@
-package org.openjdk.valhalla.value;
+package dev.thihup.valhalla.mandelbrot.example.primitive;
 
-public value class Complex {
+public primitive class Complex {
 
     final double re;
     final double im;

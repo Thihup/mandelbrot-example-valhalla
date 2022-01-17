@@ -1,12 +1,13 @@
-package org.openjdk.valhalla.reference;
+package dev.thihup.valhalla.mandelbrot.example.primitive;
 
-import org.openjdk.valhalla.FrameMaker;
+import dev.thihup.valhalla.mandelbrot.example.FrameMaker;
 
-public class ReferenceFrameMaker extends FrameMaker {
+
+public class PrimitiveFrameMaker extends FrameMaker {
 
     Complex center = new Complex(CENTER_X, CENTER_Y);
 
-    public ReferenceFrameMaker(int pix_size, int[] rgbPalette) {
+    public PrimitiveFrameMaker(int pix_size, int[] rgbPalette) {
         super(pix_size, rgbPalette);
     }
 

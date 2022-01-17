@@ -77,7 +77,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.openjdk.valhalla.Demo</mainClass>
+                            <mainClass>dev.thihup.valhalla.mandelbrot.example.Demo</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
