@@ -22,6 +22,8 @@ public final class Demo extends JPanel {
 
 
     private static Type type;
+    static int midFps = 1;
+    static JFrame frame;
 
     public static void main(String[] args) {
         type = args.length == 1 ? Type.valueOf(args[0].toUpperCase()) : Type.REFERENCE;
@@ -35,7 +37,7 @@ public final class Demo extends JPanel {
             ex.printStackTrace();
             Toolkit.getDefaultToolkit().beep();
         }
-        JFrame frame = new JFrame(type.friendlyName);
+        frame = new JFrame(type.friendlyName);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.getContentPane().add(new Demo());
         frame.setResizable(false);
@@ -82,6 +84,8 @@ public final class Demo extends JPanel {
                 long time = System.nanoTime() - startTime;
                 double fps = 1000000000.0*cnt/time;
                 label.setText(String.format("fps: %.1f", fps));
+                midFps = (int) ((midFps + fps) / 2);
+                frame.setTitle(type.friendlyName + " - " + midFps + " fps");
             }
         }
 

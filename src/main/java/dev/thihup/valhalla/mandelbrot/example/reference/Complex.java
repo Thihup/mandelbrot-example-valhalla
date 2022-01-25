@@ -1,5 +1,7 @@
 package dev.thihup.valhalla.mandelbrot.example.reference;
 
+import java.util.StringJoiner;
+
 public class Complex {
 
     final double re;
@@ -37,5 +39,13 @@ public class Complex {
 
     public Complex scalarMult(double scale) {
         return new Complex(re * scale, im * scale);
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Complex.class.getSimpleName() + "[", "]")
+            .add("re=" + re)
+            .add("im=" + im)
+            .toString();
     }
 }

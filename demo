@@ -1,5 +1,6 @@
 #!/bin/bash
 ${JAVA_HOME}/bin/java -p target/demo.jar -m dev.thihup.valhalla.mandelbrot.example &
+${JAVA_HOME}/bin/java -p target/demo.jar -m dev.thihup.valhalla.mandelbrot.example mutable &
 ${JAVA_HOME}/bin/java -p target/demo.jar -m dev.thihup.valhalla.mandelbrot.example value &
 ${JAVA_HOME}/bin/java -p target/demo.jar -m dev.thihup.valhalla.mandelbrot.example primitive &
 

@@ -1,6 +1,6 @@
 package dev.thihup.valhalla.mandelbrot.example.value;
 
-public value class Complex {
+public @__value__ class Complex {
 
     final double re;
     final double im;

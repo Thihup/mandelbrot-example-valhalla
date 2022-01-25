@@ -1,6 +1,6 @@
 package dev.thihup.valhalla.mandelbrot.example.primitive;
 
-public primitive class Complex {
+public @__primitive__ class Complex {
 
     final double re;
     final double im;

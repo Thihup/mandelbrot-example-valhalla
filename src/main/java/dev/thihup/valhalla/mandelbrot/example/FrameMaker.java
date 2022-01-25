@@ -1,5 +1,6 @@
 package dev.thihup.valhalla.mandelbrot.example;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -33,7 +34,11 @@ public abstract class FrameMaker {
     public abstract void countScene(int xFrom, int xTo, int[] data, int[] palette);
 
     public void countScene(int[] data) {
-        List<PartialRunner> runners = IntStream.range(0, CPUS).mapToObj(i -> new PartialRunner(i, data)).toList();
+        List<PartialRunner> runners = new ArrayList<>();
+        for (int i = 0; i < CPUS; i++) {
+            PartialRunner partialRunner = new PartialRunner(i, data);
+            runners.add(partialRunner);
+        }
         try {
             List<Future<Void>> fus = executor.invokeAll(runners);
             for(Future<Void> f : fus) {
@@ -43,7 +48,7 @@ public abstract class FrameMaker {
             e.printStackTrace();
         }
 
-        scale *=0.95;
+//        scale *=0.95;
 
     }
 

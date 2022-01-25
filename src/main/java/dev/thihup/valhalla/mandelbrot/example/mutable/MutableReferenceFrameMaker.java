@@ -1,12 +1,13 @@
-package dev.thihup.valhalla.mandelbrot.example.reference;
+package dev.thihup.valhalla.mandelbrot.example.mutable;
 
 import dev.thihup.valhalla.mandelbrot.example.FrameMaker;
 
-public class ReferenceFrameMaker extends FrameMaker {
+
+public class MutableReferenceFrameMaker extends FrameMaker {
 
     Complex center = new Complex(CENTER_X, CENTER_Y);
 
-    public ReferenceFrameMaker(int pixSize, int[] rgbPalette) {
+    public MutableReferenceFrameMaker(int pixSize, int[] rgbPalette) {
         super(pixSize, rgbPalette);
     }
 
@@ -21,7 +22,7 @@ public class ReferenceFrameMaker extends FrameMaker {
     }
 
     private static int count(Complex c) {
-       Complex z = c;
+       Complex z = new Complex(c.re(), c.im());
         for (int i = 1; i < MAX_ITERATIONS; i++) {
             if (z.modulus() >= 4.0) return i;
             z = z.square().add(c);
@@ -30,9 +31,7 @@ public class ReferenceFrameMaker extends FrameMaker {
     }
 
     private Complex toComplexCoord(double x, double y) {
-        Complex add = new Complex((y * 2.0 / pixSize) - 1.0, (x * 2.0 / pixSize) - 1.0).scalarMult(
-            scale).add(center);
-        return add;
+        return new Complex((y * 2.0 / pixSize) - 1.0, (x * 2.0 / pixSize) - 1.0).scalarMult(scale).add(center);
     }
 
 
