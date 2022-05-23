@@ -77,7 +77,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>dev.thihup.valhalla.mandelbrot.example.Demo</mainClass>
+                            <mainClass>dev.thihup.valhalla.mandelbrot.example.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

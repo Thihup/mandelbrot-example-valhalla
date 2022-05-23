@@ -3,9 +3,9 @@ package dev.thihup.valhalla.mandelbrot.example;
 import javax.swing.*;
 import java.awt.*;
 
-public final class Demo extends JPanel {
+public final class Main extends JPanel {
 
-    private Demo() {
+    private Main() {
         super(new BorderLayout());
 
         UpdatableImageComponent imComp = new UpdatableImageComponent();
@@ -26,8 +26,8 @@ public final class Demo extends JPanel {
     static JFrame frame;
 
     public static void main(String[] args) {
-        type = args.length == 1 ? Type.valueOf(args[0].toUpperCase()) : Type.REFERENCE;
-        EventQueue.invokeLater(Demo::createAndShowGui);
+        type = args.length == 1 ? Type.valueOf(args[0].toUpperCase()) : Type.IDENTITY;
+        EventQueue.invokeLater(Main::createAndShowGui);
     }
 
     private static void createAndShowGui() {
@@ -39,7 +39,7 @@ public final class Demo extends JPanel {
         }
         frame = new JFrame(type.friendlyName);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.getContentPane().add(new Demo());
+        frame.getContentPane().add(new Main());
         frame.setResizable(false);
         frame.pack();
         frame.setLocationRelativeTo(null);

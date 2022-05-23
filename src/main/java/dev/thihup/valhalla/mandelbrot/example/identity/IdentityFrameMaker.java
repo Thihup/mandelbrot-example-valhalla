@@ -1,12 +1,12 @@
-package dev.thihup.valhalla.mandelbrot.example.reference;
+package dev.thihup.valhalla.mandelbrot.example.identity;
 
 import dev.thihup.valhalla.mandelbrot.example.FrameMaker;
 
-public class ReferenceFrameMaker extends FrameMaker {
+public class IdentityFrameMaker extends FrameMaker {
 
     Complex center = new Complex(CENTER_X, CENTER_Y);
 
-    public ReferenceFrameMaker(int pixSize, int[] rgbPalette) {
+    public IdentityFrameMaker(int pixSize, int[] rgbPalette) {
         super(pixSize, rgbPalette);
     }
 
@@ -30,9 +30,8 @@ public class ReferenceFrameMaker extends FrameMaker {
     }
 
     private Complex toComplexCoord(double x, double y) {
-        Complex add = new Complex((y * 2.0 / pixSize) - 1.0, (x * 2.0 / pixSize) - 1.0).scalarMult(
+        return new Complex((y * 2.0 / pixSize) - 1.0, (x * 2.0 / pixSize) - 1.0).scalarMult(
             scale).add(center);
-        return add;
     }
 
 

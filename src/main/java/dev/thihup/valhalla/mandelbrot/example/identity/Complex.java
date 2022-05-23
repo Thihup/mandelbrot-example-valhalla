@@ -1,8 +1,8 @@
-package dev.thihup.valhalla.mandelbrot.example.reference;
+package dev.thihup.valhalla.mandelbrot.example.identity;
 
 import java.util.StringJoiner;
 
-public class Complex {
+public identity class Complex {
 
     final double re;
     final double im;

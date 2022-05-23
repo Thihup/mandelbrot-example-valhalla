@@ -67,7 +67,7 @@ public class Complex {
     @Override
     public String toString() {
         return new StringJoiner(", ",
-            dev.thihup.valhalla.mandelbrot.example.reference.Complex.class.getSimpleName() + "[",
+            Complex.class.getSimpleName() + "[",
             "]")
             .add("re=" + re)
             .add("im=" + im)

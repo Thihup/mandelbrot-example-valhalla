@@ -2,7 +2,6 @@ package dev.thihup.valhalla.mandelbrot.example.mutable;
 
 import dev.thihup.valhalla.mandelbrot.example.FrameMaker;
 
-
 public class MutableReferenceFrameMaker extends FrameMaker {
 
     Complex center = new Complex(CENTER_X, CENTER_Y);
