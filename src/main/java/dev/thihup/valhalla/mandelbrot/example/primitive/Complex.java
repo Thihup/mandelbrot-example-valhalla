@@ -1,6 +1,10 @@
 package dev.thihup.valhalla.mandelbrot.example.primitive;
 
-public @__primitive__ class Complex {
+import jdk.internal.vm.annotation.*;
+
+@LooselyConsistentValue
+@ImplicitlyConstructible
+public value class Complex {
 
     final double re;
     final double im;

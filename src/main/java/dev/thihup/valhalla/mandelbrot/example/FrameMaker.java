@@ -27,7 +27,7 @@ public abstract class FrameMaker {
         this.pixSize = pixSize;
         this.fraction = pixSize/CPUS;
         this.palette = rgbPalette;
-        executor = Executors.newFixedThreadPool(CPUS);
+        executor = Executors.newVirtualThreadPerTaskExecutor();
     }
 
     public abstract void countScene(int xFrom, int xTo, int[] data, int[] palette);
@@ -47,7 +47,7 @@ public abstract class FrameMaker {
             e.printStackTrace();
         }
 
-//        scale *=0.95;
+        scale *=0.95;
 
     }
 

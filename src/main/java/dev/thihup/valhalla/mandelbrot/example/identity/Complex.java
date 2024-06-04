@@ -2,7 +2,7 @@ package dev.thihup.valhalla.mandelbrot.example.identity;
 
 import java.util.StringJoiner;
 
-public identity class Complex {
+public class Complex {
 
     final double re;
     final double im;
