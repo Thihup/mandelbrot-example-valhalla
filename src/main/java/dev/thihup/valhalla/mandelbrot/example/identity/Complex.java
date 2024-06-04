@@ -2,19 +2,7 @@ package dev.thihup.valhalla.mandelbrot.example.identity;
 
 import java.util.StringJoiner;
 
-public class Complex {
-
-    final double re;
-    final double im;
-
-    public Complex(double re, double im) {
-        this.re = re;
-        this.im = im;
-    }
-
-    public double re() { return re; }
-
-    public double im() { return im; }
+public record Complex(double re, double im) {
 
     public double modulus() {
         return (re * re) + (im * im);
