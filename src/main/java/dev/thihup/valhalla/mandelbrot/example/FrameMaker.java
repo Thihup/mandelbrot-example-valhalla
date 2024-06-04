@@ -6,7 +6,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
+import java.util.stream.*;
 
 public abstract class FrameMaker {
 
@@ -20,49 +21,34 @@ public abstract class FrameMaker {
     protected double scale = 2.0;
 
 
-    static final int CPUS = Runtime.getRuntime().availableProcessors();
-    final ExecutorService executor;
-
+    static final int CPUS = 64;
     protected FrameMaker(int pixSize, int[] rgbPalette) {
         this.pixSize = pixSize;
         this.fraction = pixSize/CPUS;
         this.palette = rgbPalette;
-        executor = Executors.newVirtualThreadPerTaskExecutor();
     }
 
     public abstract void countScene(int xFrom, int xTo, int[] data, int[] palette);
 
     public void countScene(int[] data) {
-        List<PartialRunner> runners = new ArrayList<>();
-        for (int i = 0; i < CPUS; i++) {
-            PartialRunner partialRunner = new PartialRunner(i, data);
-            runners.add(partialRunner);
-        }
-        try {
-            List<Future<Void>> fus = executor.invokeAll(runners);
-            for(Future<Void> f : fus) {
-                f.get();
+        try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+            for (int i = 0; i < CPUS; i++) {
+                int finalI = i;
+                scope.fork(new PartialRunner(this, finalI, data));
             }
+            scope.join().throwIfFailed();
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
 
-        scale *=0.95;
+        //scale *=0.95;
 
     }
 
-    class PartialRunner implements Callable<Void> {
-        final int part;
-        final int[] data;
-
-        PartialRunner(int part, int[] data) {
-            this.part = part;
-            this.data = data;
-        }
-
+    record PartialRunner(FrameMaker maker, int part, int[] data) implements Callable<Void> {
         @Override
         public Void call() throws Exception {
-            countScene(part * fraction, Math.min((part + 1) * fraction, pixSize), data, palette);
+            maker.countScene(part * maker.fraction, Math.min((part + 1) * maker.fraction, maker.pixSize), data, maker.palette);
             return null;
         }
     }

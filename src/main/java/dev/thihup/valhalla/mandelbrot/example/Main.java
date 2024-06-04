@@ -74,7 +74,7 @@ public final class Main extends JPanel {
 
         @Override
         public void run() {
-            ImageMaker imaker = new ImageMaker(500, type);
+            ImageMaker imaker = new ImageMaker(512, type);
             component.setImage(imaker.getImage());
             long startTime = System.nanoTime();
             long cnt = 1;
